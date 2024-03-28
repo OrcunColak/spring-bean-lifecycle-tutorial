@@ -6,7 +6,9 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.stereotype.Component;
 
-// If a component implements BeanFactoryAware, it can get the bean factory that created it.
+/**
+ * If a component implements BeanFactoryAware, it can get the bean factory that created it.
+ */
 @Component
 @Slf4j
 public class BeanFactoryAwareExample implements BeanFactoryAware {
