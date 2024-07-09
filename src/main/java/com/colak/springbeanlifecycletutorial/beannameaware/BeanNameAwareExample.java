@@ -11,8 +11,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class BeanNameAwareExample implements BeanNameAware {
 
+    private String beanName;
+
     @Override
     public void setBeanName(String name) {
-        log.info("My Bean name is: " + name);
+        this.beanName = name;
+        log.info("My Bean name is: {}", beanName);
     }
 }

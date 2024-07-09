@@ -10,8 +10,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ApplicationContextAwareExample implements ApplicationContextAware {
 
+    private ApplicationContext applicationContext;
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
         log.info("ApplicationContext is set");
     }
 }

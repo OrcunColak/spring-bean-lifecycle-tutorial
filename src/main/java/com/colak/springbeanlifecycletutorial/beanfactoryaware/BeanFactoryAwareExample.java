@@ -1,5 +1,6 @@
 package com.colak.springbeanlifecycletutorial.beanfactoryaware;
 
+import com.colak.springbeanlifecycletutorial.beannameaware.AnotherBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -13,8 +14,17 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class BeanFactoryAwareExample implements BeanFactoryAware {
 
+    private BeanFactory beanFactory;
+
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        log.info("My BeanFactory is : " + beanFactory);
+        this.beanFactory = beanFactory;
+        log.info("My BeanFactory is : {}", beanFactory);
+    }
+
+    public void doSomething() {
+        // Use the beanFactory to get another bean
+        AnotherBean anotherBean = beanFactory.getBean(AnotherBean.class);
+        anotherBean.performTask();
     }
 }
